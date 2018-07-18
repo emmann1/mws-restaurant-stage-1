@@ -108,7 +108,7 @@ nav h1 a {
   width: 100%;
   background-color: #3397DB;
   align-items: center;
-  padding: 10px 0 0 10px;
+  padding: 10px 0 0 0;
 }
 .filter-options h2 {
   color: white;
@@ -129,38 +129,6 @@ nav h1 a {
   width: 200px;
 }
 
-@media screen and (max-width: 700px) {
-  .filter-options select {
-    background-color: white;
-    border: 1px solid #fff;
-    font-family: Arial,sans-serif;
-    font-size: 11pt;
-    height: 35px;
-    letter-spacing: 0;
-    margin: 10px;
-    padding: 0 10px;
-    width: 40%;
-  }
-
-  .inside #map-container {
-    background: blue none repeat scroll 0 0;
-    height: 20%;
-    position: fixed;
-    right: 0;
-    top: 10px;
-    width: 100%;
-  }
-
-  #restaurant-container {
-    border-bottom: 1px solid #d9d9d9;
-    border-top: 1px solid #fff;
-    padding: 140px 40px 30px;
-    width: 100%;
-  }
-
-
-}
-
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
   background-color: #f3f3f3;
@@ -175,7 +143,7 @@ nav h1 a {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
+  margin: 15px auto;
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
@@ -307,4 +275,51 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+@media only screen and (max-width: 700px) {
+  .filter-options select {
+    background-color: white;
+    border: 1px solid #fff;
+    font-family: Arial,sans-serif;
+    font-size: 11pt;
+    height: 35px;
+    letter-spacing: 0;
+    margin: 10px;
+    padding: 0 10px;
+    width: 40%;
+  }
+
+  #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 15%;
+    position: absolute;
+    right: 0;
+    top: -10%;
+    width: 100%;
+  }
+
+  #restaurant-container {
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #fff;
+    padding: 100px 40px 30px;
+    margin-top:50%;
+    width: 100%;
+  }
+
+  #reviews-container {
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #fff;
+    padding: 10px 40px 30px;
+    width: 100%;
+  }
+
+  #breadcrumb {
+    padding: 10px 40px 16px;
+    list-style: none;
+    background-color: #eee;
+    font-size: 17px;
+    margin: 0;
+    width: 100%;
+}
 }
