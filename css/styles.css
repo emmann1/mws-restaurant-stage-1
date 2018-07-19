@@ -208,7 +208,7 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -326,6 +326,6 @@ nav h1 a {
 
 @media screen and (max-width: 450px) {
   #restaurants-list li {
-    min-width: 90%;
+    min-width: 80%;
   }
 }
