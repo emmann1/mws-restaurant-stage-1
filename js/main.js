@@ -4,6 +4,26 @@ let restaurants,
 var newMap
 var markers = []
 
+
+// Service Worker
+
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+  .then((reg) => {
+    if(reg.installing){
+      console.log('Service Worker installing');
+    } else if(reg.waiting) {
+      console.log('Service Worker installed');
+    } else if(reg.active) {
+      console.log('Service Worker is active')
+    }
+    console.log('Registration succeded. Scope is ' + reg.scope);
+  }).catch((error) => {
+    console.log('Registration failed with ' + error);
+  });
+}
+
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -161,6 +181,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -208,4 +229,3 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
