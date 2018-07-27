@@ -8,19 +8,16 @@ var markers = []
 // Service Worker
 
 if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js')
-  .then((reg) => {
-    if(reg.installing){
-      console.log('Service Worker installing');
-    } else if(reg.waiting) {
-      console.log('Service Worker installed');
-    } else if(reg.active) {
-      console.log('Service Worker is active')
+  navigator.serviceWorker.register('./sw.js').then(function(reg) {
+    console.log('Registration worked');
+    if(reg.waiting) {
+      console.log('Service Worker is waiting to be installed');
+      reg.update();
+      reg.waiting.postMessage({action: 'skipWaiting'})
     }
-    console.log('Registration succeded. Scope is ' + reg.scope);
-  }).catch((error) => {
-    console.log('Registration failed with ' + error);
-  });
+  }).catch(function(error) {
+    console.log('Registration failed with an error:' + error);
+  })
 }
 
 
@@ -181,7 +178,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = restaurant.name;
+  image.alt = 'This is the image for ' + restaurant.name;
   li.append(image);
 
   const name = document.createElement('h1');
